@@ -11,23 +11,23 @@ using Newtonsoft.Json;
 
 namespace ecard.Pages
 {
-    public class FormModel : PageModel
+    public class QuestionnaireModel : PageModel
     {
 
         // WOWOCO: 1
         [BindProperty]
-        public Greetings _myGreetings { get; set; }
+        public Questionnaire _myQuestionnaire { get; set; }
 
         // WOWOCO: 2
-        private DbBridge _myDbBridge { get; set; }
+        private QDbBridge _myQDbBridge { get; set; }
 
         // WOWOCO: 3
         private IConfiguration _myConfiguration { get; set; }
 
         // WOWOCO: 4
-        public FormModel(DbBridge DbBridge, IConfiguration Configuration)
+        public QuestionnaireModel(QDbBridge QDbBridge, IConfiguration Configuration)
         {
-            _myDbBridge = DbBridge;
+            _myQDbBridge = QDbBridge;
             _myConfiguration = Configuration;
 
         }
@@ -44,34 +44,31 @@ namespace ecard.Pages
                 {
                     try
                     {
-                        _myGreetings.created = DateTime.Now.ToString();
-                        _myGreetings.created_ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
+                        _myQuestionnaire.created = DateTime.Now.ToString();
+                        _myQuestionnaire.created_ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
 
                         // Power of replacing inputs before they are entered into the database
-                        _myGreetings.friendname = _myGreetings.friendname.Replace("i", "3");
-                        _myGreetings.friendname = _myGreetings.friendname.Replace("\"", "&quot;");
-                        _myGreetings.friendname = _myGreetings.friendname.Replace("She said, \"Hello!\"", "");
-                        _myGreetings.senderemail = _myGreetings.senderemail.ToLowerInvariant();
-                        _myGreetings.friendemail = _myGreetings.friendemail.ToUpperInvariant();
+                        _myQuestionnaire.favoritecolor = _myQuestionnaire.favoritecolor.Replace("\"", "&quot;");
+                        _myQuestionnaire.favoritecolor = _myQuestionnaire.favoritecolor.Replace("She said, \"Hello!\"", "");
 
                         // DB Related add record
-                        _myDbBridge.Greetings.Add(_myGreetings);
-                        _myDbBridge.SaveChanges();
+                        _myQDbBridge.Questionnaire.Add(_myQuestionnaire);
+                        _myQDbBridge.SaveChanges();
 
                         //REDIRECT to the page with a new operator (name/value pair)
-                        return RedirectToPage("Form", new { id = _myGreetings.ID });
+                        return RedirectToPage("Questionnaire", new { id = _myQuestionnaire.ID });
                     }
 
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
-                        return RedirectToPage("Form");
+                        return RedirectToPage("Questionnaire");
                     }
                 }
             }
             else
             {
-                ModelState.AddModelError("_myGreetings.reCaptcha", "Please verify you're not a robot!");
+                ModelState.AddModelError("_myQuestionnaire.reCaptcha", "Please verify you're not a robot!");
             }
 
             return Page();

@@ -3,34 +3,40 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ecard.Model
 {
-    public class Greetings
+    public class Questionnaire
     {
         [Key]
         public int ID { get; set; }
 
-        [DisplayName("Your Friend's Name")]
-        [Display(Prompt = "Your Friend's Name")]
+        [DisplayName("Your Favorite Color")]
+        [Display(Prompt = "What is your favorite color?")]
         [Required(ErrorMessage = "Required")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
-        public string friendname { get; set; }
+        public string favoritecolor { get; set; }
 
-        [DisplayName("Your Friend's Email")]
-        [Display(Prompt = "Your Friend's Email")]
+        [DisplayName("Your Favorite Movie Star")]
+        [Display(Prompt = "Who is your favorite movie star?")]
         [Required(ErrorMessage = "Required")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
-        public string friendemail { get; set; }
+        public string moviestar { get; set; }
 
-        [DisplayName("Email Subject")]
-        [Display(Prompt = "Email Subject")]
+        [DisplayName("Favorite Ice Cream Flavor")]
+        [Display(Prompt = "What is your favorite ice cream flavor?")]
         [Required(ErrorMessage = "Required")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
-        public string subject { get; set; }
+        public string icecream { get; set; }
 
-        [DisplayName("Your Custom Message")]
-        [Display(Prompt = "Your Custom Message")]
+        [DisplayName("Do You Play Music")]
+        [Display(Prompt = "Do you play an instrument or just the radio?")]
         [Required(ErrorMessage = "Required")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
-        public string message { get; set; }
+        public string musician { get; set; }
+
+        [DisplayName("Dogs or Cats")]
+        [Display(Prompt = "Do you prefer dogs or cats?")]
+        [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+        public string dogsorcats { get; set; }
 
         [DisplayName("Your Name")]
         [Display(Prompt = "Your Name")]
