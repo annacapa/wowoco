@@ -33,3 +33,56 @@ body {
         display: none
     }
 }
+
+
+
+/* FROM GITHUB TEMPLATE FILES */
+body {
+    font-family:;
+    font-size: 14px;
+    background:;
+    color:
+}
+
+a {
+    color:
+}
+
+    a:link,
+    a:visited,
+    a:active,
+    a:hover a:focus {
+        color:
+
+    }
+
+
+
+
+
+
+/* 
+    ************************************************************************
+    HOW TO: ADJUST YOUR CSS WHEN THE USER'S VIEWPORT GETS LARGER
+
+    You may combine anything to the right of "@media screen"    
+    For example: 
+    @media screen and (min-width: 1024px) and (orientation: landscape)
+    ************************************************************************
+*/
+
+/* FOR LARGER HEIGHT */
+@media screen and (min-height: ___px) {
+}
+
+/* FOR LARGER WIDTH */
+@media screen and (min-width: ___px) {
+}
+
+/* FOR PORTRAIT ONLY */
+@media screen and (orientation: portrait) {
+}
+
+/* FOR LANDSCAPE ONLY */
+@media screen and (orientation: landscape) {
+}

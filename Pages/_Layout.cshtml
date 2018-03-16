@@ -1,2 +1,86 @@
-@RenderBody()
+<!DOCTYPE html>
+<html lang="en">
 
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="copyright" content="" />
+    <meta name="designer" content="" />
+
+    <!-- FACEBOOK -->
+    <link rel="canonical" href="" />
+    <meta property="fb:app_id" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="" />
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" /
+
+    <!-- TOUCHSCREEN ICONS -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/icon_144x144.jpg">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/icon_114x114.jpg">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/icons/icon_72x72.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/images/icons/icon_57x57.jpg">
+
+    <!-- FAVICON  -->
+    <link rel="icon" href="" type="image/x-icon" />
+
+    <!-- BOOTSTRAP LIBRARY -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+        
+    <!-- GOOGLE FONT LIBRARY -->
+    <link href="" rel="stylesheet">
+
+    <!-- FONTAWESOME LIBRARY -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+
+<body>
+
+        <!-- BEGIN: FACEBOOK LIBRARY -->
+        <div id="fb-root"></div>
+        <script>
+    (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <!-- END: FACEBOOK LIBRARY -->
+        
+        
+
+        <!-- BEGIN: BODY HTML -->
+        @RenderBody()
+        <!-- END: BODY HTML -->
+
+        
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    @RenderSection("scripts", required: false)
+        
+</body>
+</html>

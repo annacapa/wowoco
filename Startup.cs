@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ecard.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +24,9 @@ namespace ecard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            //WOWOCO
+            //register the database
+            services.AddDbContext<DbBridge>(options => options.UseSqlite(Configuration["MyDB"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +49,22 @@ namespace ecard
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+
+
+            //WOWOCO: Codeblock to auto-create the database when needed
+            using (var serviceScope = app
+                   .ApplicationServices
+                   .GetRequiredService<IServiceScopeFactory>()
+                   .CreateScope())
+            {
+                serviceScope
+                    .ServiceProvider
+                    .GetService<DbBridge>()
+                    .Database
+                    .EnsureCreated();
+            }
+                        
+
         }
     }
 }
